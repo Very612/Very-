@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#include<Windows.h>
 using namespace std;
 string s1;
 void judge(int n){
@@ -57,7 +56,7 @@ public:
 			}
 			cout<<'\n';
 		}
-		Sleep(1000);
+		sleep(1);
 		cout <<s1;
 		vector<pair<int,int>>dd;
 		for(auto i : d1.c){
@@ -95,7 +94,7 @@ public:
 			}
 			cout<<'\n';
 		}
-		Sleep(1000);
+		sleep(1);
 		cout <<s1;
 		map<pair<int,int>,bool>q;
 		for(auto i : e.c){
