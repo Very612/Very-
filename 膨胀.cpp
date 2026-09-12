@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<Windows.h>
 using namespace std;
 string s1;
 void judge(int n){
@@ -21,12 +22,23 @@ public:
 			}
 		}
 		cout<<"请输入结构元素的半径大小: ";
-		cin>>m;
+		cin>>m;b.assign(m,vector<char>(m));
+		string b1;map<pair<int,int>,bool>c1;
+		cout<<"是否将角圆润化？(Y/N): ";
+		cin>>b1;
+		while(b1!="Y"&&b1!="y"&&b1!="N"&&b1!="n"){
+			cout<<"请重新输入："<<'\n';
+			cout<<"是否将角圆润化？(Y/N)：";
+			cin>>b1;
+		}
+		if(b1=="Y"||b1=="y"){
+			c1[{0,0}]=1,c1[{0,m-1}]=1,c1[{m-1,0}]=1,c1[{m-1,m-1}]=1;
+		}
 		cout<<"请输入结构元素："<<'\n';
-		b.assign(m,vector<char>(m));
 		for(int i=0;i<m;i++){
 			for(int j=0;j<m;j++){
 				cin>>b[i][j];
+				if(c1[{i,j}]){b[i][j]='0';}
 				if(b[i][j]=='1'){ d.push_back({i-(m-1)/2,j-(m-1)/2});}
 			}
 		}
@@ -45,7 +57,7 @@ public:
 			}
 			cout<<'\n';
 		}
-		sleep(1);
+		Sleep(1000);
 		cout <<s1;
 		vector<pair<int,int>>dd;
 		for(auto i : d1.c){
@@ -79,10 +91,11 @@ public:
 		for(int i=0;i<e.n;i++){
 			for(int j=0;j<e.n;j++){
 				e.a[i][j]=='1' ? cout<<"■" : cout<<"□";
+				
 			}
 			cout<<'\n';
 		}
-		sleep(1);
+		Sleep(1000);
 		cout <<s1;
 		map<pair<int,int>,bool>q;
 		for(auto i : e.c){
@@ -102,7 +115,7 @@ public:
 		}
 		for(int i=0;i<e.n;i++){ 
 			for(int j=0;j<e.n;j++){
-
+				
 				if(q[{i,j}]){
 					e.c.erase(remove(e.c.begin(),e.c.end(),make_pair(i,j)),e.c.end());
 					e.a[i][j]='0';
@@ -133,13 +146,13 @@ int main(){
 				b1.ERO();b1.ass(c);
 				continue;
 			}
-			if(s!="e"&&s!="E"&&s!="D"&&s!="d"){
+			if(s!="e"&&s!="E"&&s!="D"&&s!="d"&&s!="break"){
 				cout<<"错误输入,请重新输入"<<'\n';
 				continue;
 			}
 		}
-	   bool i=0;
-	   	while(1){
+		bool i=0;
+		while(1){
 			cout<<"需要结束进程吗:(Y/N)";cin>>s1;
 			if(s1=="Y"||s1=="y"){i=1;break;}
 			if(s1=="N"||s1=="n"){break;}
