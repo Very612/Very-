@@ -1,2 +1,2 @@
 # Very-
-这里堆放着些许的零碎
+里面的sleep函数在windows里面可能运行失败本代码实在Ubuntu里面运行的
